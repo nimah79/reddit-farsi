@@ -33,4 +33,28 @@ class CommunitiesController extends Controller
 
         return redirect(route('community.list'));
     }
+
+    public function showEditForm(Community $community)
+    {
+        return view('communities.edit', compact('community'));
+    }
+
+    public function edit(Community $community, Request $request)
+    {
+        $attributes = $request->validate([
+            'name' => ['required'],
+            'description' => ['required'],
+        ]);
+
+        if ($attributes['name'] != $community->name && Community::whereName($attributes['name'])->exists()) {
+            return back()->withErrors([
+                'name' => __('نام قبلاً انتخاب شده است.'),
+            ]);
+        }
+
+        $community->fill($attributes);
+        $community->save();
+
+        return redirect(route('community.list'));
+    }
 }

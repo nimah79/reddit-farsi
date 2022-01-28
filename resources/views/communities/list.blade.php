@@ -31,7 +31,7 @@
               <td>{{ $community->creator->username }}</td>
               <td>
                 <a href="{{ url('/') }}" class="btn btn-success"><i class="fas fa-users"></i></a>
-                <a href="{{ url('/') }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
+                <a href="{{ route('community.edit', ['community' => $community->id]) }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
                 <a href="{{ url('/') }}" class="btn btn-warning"><i class="fas fa-ban"></i></a>
                 <a href="{{ url('/') }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
               </td>

@@ -35,3 +35,8 @@ Route::get('/my_communities/create', [App\Http\Controllers\CommunitiesController
     ->name('community.create');
 Route::post('/my_communities/create', [App\Http\Controllers\CommunitiesController::class, 'create'])
     ->middleware('auth');
+Route::get('/my_communities/{community}/edit', [App\Http\Controllers\CommunitiesController::class, 'showEditForm'])
+    ->middleware('auth')
+    ->name('community.edit');
+Route::post('/my_communities/{community}/edit', [App\Http\Controllers\CommunitiesController::class, 'edit'])
+    ->middleware('auth');
