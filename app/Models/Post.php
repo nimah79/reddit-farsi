@@ -4,10 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Mail\Markdown;
 
 class Post extends Model
 {
     use HasFactory;
+
+    public function getRenderedBodyAttribute()
+    {
+        return Markdown::parse($this->body);
+    }
 
     public function user()
     {

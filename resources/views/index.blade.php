@@ -20,7 +20,7 @@
               <h6 class="card-subtitle mb-2 text-muted small">{{ __('در') }} <a class="text-body hover-underline" href="#">{{ $post->community->name }}</a>{{ __('،') }} {{ __('توسط') }} <a class="text-body hover-underline" href="#"> {{ $post->user->username }}</a></h6>
             </div>
           </div>
-          {{ $post->body }}
+          {!! $post->rendered_body !!}
         </div>
         <div class="card-footer bg-body">
           <div class="float-start pt-1">
