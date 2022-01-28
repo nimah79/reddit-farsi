@@ -20,6 +20,7 @@ class CreateCommunitiesTable extends Migration
                   ->cascadeOnUpdate()
                   ->cascadeOnDelete();
             $table->string('name')->unique();
+            $table->string('description');
             $table->timestamps();
         });
     }

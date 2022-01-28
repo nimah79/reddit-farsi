@@ -16,8 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home']);
 Route::get('/signup', [App\Http\Controllers\AuthController::class, 'signup']);
 Route::post('/signup', [App\Http\Controllers\AuthController::class, 'attemptSignup']);
-Route::get('/login', [App\Http\Controllers\AuthController::class, 'login']);
+Route::get('/login', [App\Http\Controllers\AuthController::class, 'login'])
+    ->name('login');
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'attemptLogin']);
 Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout']);
 Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'show'])
     ->name('post.show');
+Route::get('/my_communities', [App\Http\Controllers\CommunitiesController::class, 'list'])
+    ->middleware('auth')
+    ->name('community.list');
+Route::get('/my_communities/create', [App\Http\Controllers\CommunitiesController::class, 'showCreateForm'])
+    ->middleware('auth')
+    ->name('community.create');
+Route::post('/my_communities/create', [App\Http\Controllers\CommunitiesController::class, 'create'])
+    ->middleware('auth');

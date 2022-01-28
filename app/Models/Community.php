@@ -9,6 +9,12 @@ class Community extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+    protected $with = [
+        'creator',
+    ];
+
     public function creator()
     {
         return $this->belongsTo(User::class, 'creator_id');

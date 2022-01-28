@@ -17,20 +17,7 @@ class CommunityFactory extends Factory
         return [
             'creator_id' => 1,
             'name' => 'انجمن شاعران مرده',
+            'description' => 'توضیحات انجمن شاعران مرده',
         ];
-    }
-
-    /**
-     * Indicate that the model's email address should be unverified.
-     *
-     * @return \Illuminate\Database\Eloquent\Factories\Factory
-     */
-    public function unverified()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'email_verified_at' => null,
-            ];
-        });
     }
 }
