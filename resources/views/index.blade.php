@@ -14,9 +14,6 @@
       <article class="card shadow-sm mb-4">
         <div class="card-body">
           <div class="row">
-            <div class="col-3 col-lg-2">
-              <img src="https://laravel.qcollege.ir/web/storage/images/posts/2021/1627847477_lorem-ipsum.jpg" alt="lorem-ipsum-2" class="img-fluid index-post-image rounded">
-            </div>
             <div class="col-9 col-lg-10 pt-2">
               <a href="/posts/lorem-ipsum-2" class="text-body"><h5 class="card-title">{{ $post->title }}</h5></a>
               <h6 class="card-subtitle mb-2 text-muted small ltr">{{ $post->created_at }}</h6>

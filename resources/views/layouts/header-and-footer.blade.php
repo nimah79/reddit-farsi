@@ -1,5 +1,9 @@
 @extends('layouts/app')
 
+@section('stylesheets')
+<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <body>
 <div class="container">
@@ -17,13 +21,19 @@
         @auth
         <div class="dropdown">
           <a href="#" class="d-block link-secondary dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="40" height="40" class="rounded-circle">
+            <img src="{{ auth()->user()->gravatar }}" alt="mdo" width="40" height="40" class="rounded-circle">
           </a>
           <ul class="dropdown-menu dropdown-menu-end text-end shadow-sm" aria-labelledby="userDropdown">
+            <li><p class="dropdown-item text-start">{{ auth()->user()->username }}</p></li>
+            <li><p class="dropdown-item text-start">{{ auth()->user()->email }}</p></li>
+            <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item mb-3" href="#"><i class="fas fa-users"></i> {{ __('انجمن‌های من') }}</a></li>
             <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i> {{ __('تنظیمات حساب کاربری') }}</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> {{ __('خروج') }}</a></li>
+            <li><a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit()"><i class="fas fa-sign-out-alt"></i> {{ __('خروج') }}</a></li>
+            <form id="logout-form" style="display:none" action="/logout" method="post">
+              @csrf
+            </form>
           </ul>
         </div>
         @endauth

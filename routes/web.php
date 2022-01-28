@@ -14,3 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home']);
+Route::get('/signup', [App\Http\Controllers\AuthController::class, 'signup']);
+Route::post('/signup', [App\Http\Controllers\AuthController::class, 'attemptSignup']);
+Route::get('/login', [App\Http\Controllers\AuthController::class, 'login']);
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'attemptLogin']);
+Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout']);

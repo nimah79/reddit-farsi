@@ -8,10 +8,12 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-nightshade.min.css" rel="stylesheet">
   <link href="https://pro.fontawesome.com/releases/v5.15.4/css/all.css" rel="stylesheet">
-  <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+  @section('stylesheets')
+  @show
 </head>
 @section('content')
 @show
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/js/darkmode.min.js"></script>
 @section('scripts')
