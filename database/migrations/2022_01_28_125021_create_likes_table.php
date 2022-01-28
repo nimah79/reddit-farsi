@@ -19,10 +19,7 @@ class CreateLikesTable extends Migration
                   ->constrained()
                   ->cascadeOnUpdate()
                   ->cascadeOnDelete();
-            $table->foreignId('post_id')
-                  ->constrained()
-                  ->cascadeOnUpdate()
-                  ->cascadeOnDelete();
+            $table->morphs('likeable');
             $table->timestamps();
         });
     }

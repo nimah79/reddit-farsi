@@ -19,10 +19,7 @@ class CreateDislikesTable extends Migration
                   ->constrained()
                   ->cascadeOnUpdate()
                   ->cascadeOnDelete();
-            $table->foreignId('post_id')
-                  ->constrained()
-                  ->cascadeOnUpdate()
-                  ->cascadeOnDelete();
+            $table->morphs('dislikeable');
             $table->timestamps();
         });
     }
