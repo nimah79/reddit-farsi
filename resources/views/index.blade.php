@@ -16,7 +16,7 @@
           <div class="row">
             <div class="col-9 col-lg-10 pt-2">
               <a href="/posts/lorem-ipsum-2" class="text-body"><h5 class="card-title">{{ $post->title }}</h5></a>
-              <h6 class="card-subtitle mb-2 text-muted small ltr">{{ $post->created_at }}</h6>
+              <h6 class="card-subtitle mb-2 text-muted small">{{ to_persian_digits(verta($post->created_at)) }}</h6>
               <h6 class="card-subtitle mb-2 text-muted small">{{ __('در') }} <a class="text-body hover-underline" href="#">{{ $post->community->name }}</a>{{ __('،') }} {{ __('توسط') }} <a class="text-body hover-underline" href="#"> {{ $post->user->username }}</a></h6>
             </div>
           </div>
