@@ -7,12 +7,16 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function home()
+    public function home(Request $request)
     {
-        $posts = Post::paginate(12);
+        $sortType = $request->query('sort') ?? $request->sort ?? 'created_at';
+        if (!in_array($sortType, ['created_at', 'comments_count', 'likes_count'])) {
+            $sortType = 'created_at';
+        }
+        $posts = Post::orderBy($sortType, 'desc')->orderBy('id', 'desc')->paginate(12)->withQueryString();
         if ($posts->count() == 0) {
             abort(404);
         }
-        return view('index', compact('posts'));
+        return view('index', compact('posts', 'sortType'));
     }
 }

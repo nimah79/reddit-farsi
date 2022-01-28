@@ -31,7 +31,7 @@
             <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i> {{ __('تنظیمات حساب کاربری') }}</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit()"><i class="fas fa-sign-out-alt"></i> {{ __('خروج') }}</a></li>
-            <form id="logout-form" style="display:none" action="/logout" method="post">
+            <form id="logout-form" style="display:none" action="{{ url('/logout') }}" method="post">
               @csrf
             </form>
           </ul>
