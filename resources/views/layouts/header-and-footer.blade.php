@@ -21,7 +21,7 @@
         @auth
         <div class="dropdown">
           <a href="#" class="d-block link-secondary dropdown-toggle text-decoration-none" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="{{ auth()->user()->gravatar }}" alt="mdo" width="40" height="40" class="rounded-circle">
+            <img src="{{ auth()->user()->gravatar }}" alt="{{ auth()->user()->username }}" width="40" height="40" class="rounded-circle">
           </a>
           <ul class="dropdown-menu dropdown-menu-end text-end shadow-sm" aria-labelledby="userDropdown">
             <li><p class="dropdown-item text-start">{{ auth()->user()->username }}</p></li>
