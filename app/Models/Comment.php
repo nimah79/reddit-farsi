@@ -31,6 +31,6 @@ class Comment extends Model
 
     public function dislikes()
     {
-        return $this->morphMany(Like::class, 'dislikeable');
+        return $this->morphMany(Dislike::class, 'dislikeable');
     }
 }
