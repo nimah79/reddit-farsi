@@ -20,6 +20,11 @@ Route::get('/login', [App\Http\Controllers\AuthController::class, 'login'])
     ->name('login');
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'attemptLogin']);
 Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout']);
+Route::get('/post/create', [App\Http\Controllers\PostsController::class, 'showCreateForm'])
+    ->middleware('auth')
+    ->name('post.create');
+Route::post('/post/create', [App\Http\Controllers\PostsController::class, 'create'])
+    ->middleware('auth');
 Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'show'])
     ->name('post.show');
 Route::get('/my_communities', [App\Http\Controllers\CommunitiesController::class, 'list'])

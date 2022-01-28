@@ -7,8 +7,28 @@ use Illuminate\Http\Request;
 
 class PostsController extends Controller
 {
+    public function showCreateForm(Post $post)
+    {
+        return view('posts.create');
+    }
+
+    public function create(Request $request)
+    {
+        $attributes = $request->validate([
+            'community_id' => ['required', 'exists:communities,id'],
+            'title' => ['required'],
+            'body' => ['required'],
+        ]);
+
+        $attributes['user_id'] = auth()->user()->id;
+
+        Post::create($attributes);
+
+        return redirect('/');
+    }
+
     public function show(Post $post)
     {
-        return view('post', compact('post'));
+        return view('posts.show', compact('post'));
     }
 }
