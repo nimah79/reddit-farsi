@@ -20,7 +20,7 @@
         @endguest
         @auth
         <div class="dropdown">
-          <a href="#" class="d-block link-secondary dropdown-toggle" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+          <a href="#" class="d-block link-secondary dropdown-toggle text-decoration-none" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="{{ auth()->user()->gravatar }}" alt="mdo" width="40" height="40" class="rounded-circle">
           </a>
           <ul class="dropdown-menu dropdown-menu-end text-end shadow-sm" aria-labelledby="userDropdown">

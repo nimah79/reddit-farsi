@@ -10,6 +10,17 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $with = [
+        'community',
+        'user',
+    ];
+
+    protected $withCount = [
+        'likes',
+        'dislikes',
+        'comments',
+    ];
+
     public function getRenderedBodyAttribute()
     {
         return Markdown::parse($this->body);

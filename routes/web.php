@@ -19,3 +19,5 @@ Route::post('/signup', [App\Http\Controllers\AuthController::class, 'attemptSign
 Route::get('/login', [App\Http\Controllers\AuthController::class, 'login']);
 Route::post('/login', [App\Http\Controllers\AuthController::class, 'attemptLogin']);
 Route::post('/logout', [App\Http\Controllers\AuthController::class, 'logout']);
+Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'show'])
+    ->name('post.show');

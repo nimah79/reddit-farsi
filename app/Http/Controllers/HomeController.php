@@ -9,9 +9,10 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $posts = Post::with(['community', 'user'])
-            ->withCount(['likes', 'dislikes', 'comments'])
-            ->paginate(12);
+        $posts = Post::paginate(12);
+        if ($posts->count() == 0) {
+            abort(404);
+        }
         return view('index', compact('posts'));
     }
 }
