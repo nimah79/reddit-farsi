@@ -24,11 +24,21 @@
         </div>
         <div class="card-footer bg-body">
           <div class="float-start pt-1">
-            <i class="fas fa-comments"></i> ۴۳
+            <i class="fas fa-comments"></i> {{ to_persian_digits($post->comments_count) }}
             <span class="mx-1"></span>
-            <button type="button" class="btn btn-outline-dark"><i class="fas fa-thumbs-down"></i> ۹</button>
-            <button type="button" class="btn btn-dark"><i class="fas fa-thumbs-up"></i> ۱۲۳</button></div>
-          <div class="float-end"><a href="/posts/lorem-ipsum-2" class="btn btn-dark">{{ __('ادامه') }}</a></div>
+            @auth
+            <button type="button" class="btn btn-outline-dark"><i class="fas fa-thumbs-down"></i> {{ to_persian_digits($post->dislikes_count) }}</button>
+            <button type="button" class="btn btn-dark"><i class="fas fa-thumbs-up"></i> {{ to_persian_digits($post->likes_count) }}</button>
+            @endauth
+            @guest
+            <i class="fas fa-thumbs-down"></i> {{ to_persian_digits($post->dislikes_count) }}
+            <span class="mx-1"></span>
+            <i class="fas fa-thumbs-up"></i> {{ to_persian_digits($post->likes_count) }}
+            @endguest
+          </div>
+          <div class="float-end">
+            <a href="/posts/lorem-ipsum-2" class="btn btn-dark">{{ __('ادامه') }}</a>
+          </div>
         </div>
       </article>
       @endforeach
