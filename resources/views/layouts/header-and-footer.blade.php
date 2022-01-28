@@ -37,3 +37,11 @@
   <p>{{ __('ساخته شده با افتخار در ایران | ۱۴۰۰') }}</p>
 </footer>
 @endsection
+
+@section('scripts')
+<script>
+  document.querySelector("#darkmode-btn").onclick = function(e) {
+    darkmode.toggleDarkMode();
+  }
+</script>
+@endsection

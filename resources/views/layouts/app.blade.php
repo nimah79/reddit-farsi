@@ -14,10 +14,7 @@
 @show
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/js/darkmode.min.js"></script>
-<script>
-  document.querySelector("#darkmode-btn").onclick = function(e) {
-    darkmode.toggleDarkMode();
-  }
-</script>
+@section('scripts')
+@show
 </body>
 </html>
