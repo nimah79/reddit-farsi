@@ -15,6 +15,14 @@ class CreateSavedPostsTable extends Migration
     {
         Schema::create('saved_posts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')
+                  ->constrained()
+                  ->cascadeOnUpdate()
+                  ->cascadeOnDelete();
+            $table->foreignId('post_id')
+                  ->constrained()
+                  ->cascadeOnUpdate()
+                  ->cascadeOnDelete();
             $table->timestamps();
         });
     }

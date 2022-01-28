@@ -15,6 +15,11 @@ class CreateCommunitiesTable extends Migration
     {
         Schema::create('communities', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('creator_id')
+                  ->constrained('users')
+                  ->cascadeOnUpdate()
+                  ->cascadeOnDelete();
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }

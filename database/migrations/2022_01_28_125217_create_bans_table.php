@@ -15,6 +15,15 @@ class CreateBansTable extends Migration
     {
         Schema::create('bans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('community_id')
+                  ->constrained()
+                  ->cascadeOnUpdate()
+                  ->cascadeOnDelete();
+            $table->foreignId('user_id')
+                  ->constrained()
+                  ->cascadeOnUpdate()
+                  ->cascadeOnDelete();
+            $table->enum('type', ['view', 'like', 'comment', 'post']);
             $table->timestamps();
         });
     }
