@@ -23,5 +23,8 @@
       <i class="fas fa-thumbs-up"></i> {{ to_persian_digits($post->likes_count) }}
       @endguest
     </div>
+    <div class="float-end">
+      <a href="{{ route('post.bookmark', ['post' => $post->id]) }}" class="btn btn-{{ $post->savedPosts()->whereUserId(auth()->user()->id)->exists() ? '' : 'outline-' }}dark"><i class="far fa-bookmark"></i></a>
+    </div>
   </div>
 </article>

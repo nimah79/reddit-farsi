@@ -129,6 +129,11 @@
         `);
       $('.card-footer[data-commentid="'+comment_id+'"]').show();
       $('.card-footer[data-commentid="'+comment_id+'"] .reply-box').toggle();
+      if ($('.card-footer[data-commentid="'+comment_id+'"] .reply-box').is(":visible")) {
+        $('html, body').animate({
+            scrollTop: $('.card-footer[data-commentid="'+comment_id+'"] .reply-box').offset().top
+        }, 0);
+      }
     });
 
     $('.btn-like').click(async function () {
