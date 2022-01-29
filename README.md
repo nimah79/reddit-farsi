@@ -8,15 +8,14 @@
 
 
 # Reddit Farsi
-# IE Fall 2021 final project
-# Nima HeydariNasab
-# Mohammadreza Mohammadzade Asl
-## client-side for online chess project implemented by Java FX
+## IE Fall 2021 final project
+### Nima HeydariNasab
+### Mohammadreza Mohammadzade Asl
 ## Front-End technologies: Bootstrap 5 and jQuery
 ## Back-End technologies: Laravel and MySQL
 
 
-Project details on [Reddit Farsi]().
+Project deployed on [Reddit Farsi]().
 
 
 #### the main features of this project are:
