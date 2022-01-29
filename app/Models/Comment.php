@@ -9,6 +9,17 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+    protected $with = [
+        'user',
+    ];
+
+    protected $withCount = [
+        'likes',
+        'dislikes',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

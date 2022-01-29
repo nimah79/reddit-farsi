@@ -28,6 +28,7 @@
             <li><p class="dropdown-item text-start">{{ auth()->user()->email }}</p></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item mb-3" href="{{ url('/my_communities') }}"><i class="fas fa-users"></i> {{ __('انجمن‌های من') }}</a></li>
+            <li><a class="dropdown-item mb-3" href="{{ url('/bookmarks') }}"><i class="fas fa-bookmark"></i> {{ __('پست‌های ذخیره‌شده') }}</a></li>
             <li><a class="dropdown-item" href="{{ url('/account') }}"><i class="fas fa-user-cog"></i> {{ __('تنظیمات حساب کاربری') }}</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit()"><i class="fas fa-sign-out-alt"></i> {{ __('خروج') }}</a></li>

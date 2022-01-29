@@ -9,6 +9,13 @@ class SavedPost extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+    protected $with = [
+        'user',
+        'post',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

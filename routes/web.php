@@ -27,15 +27,25 @@ Route::post('/post/create', [App\Http\Controllers\PostsController::class, 'creat
     ->middleware('auth');
 Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'show'])
     ->name('post.show');
+Route::post('/post/{post}', [App\Http\Controllers\PostsController::class, 'addComment']);
 Route::get('/post/{post}/delete', [App\Http\Controllers\PostsController::class, 'delete'])
     ->middleware('auth')
     ->name('post.delete');
+Route::get('/post/{post}/bookmark', [App\Http\Controllers\PostsController::class, 'toggleBookmark'])
+    ->middleware('auth')
+    ->name('post.bookmark');
 Route::get('/post/{post}/like', [App\Http\Controllers\PostsController::class, 'like'])
     ->middleware('auth')
     ->name('post.like');
 Route::get('/post/{post}/dislike', [App\Http\Controllers\PostsController::class, 'dislike'])
     ->middleware('auth')
     ->name('post.dislike');
+Route::get('/comment/{comment}/like', [App\Http\Controllers\PostsController::class, 'likeComment'])
+    ->middleware('auth')
+    ->name('comment.like');
+Route::get('/comment/{comment}/dislike', [App\Http\Controllers\PostsController::class, 'dislikeComment'])
+    ->middleware('auth')
+    ->name('comment.dislike');
 Route::get('/my_communities', [App\Http\Controllers\CommunitiesController::class, 'list'])
     ->middleware('auth')
     ->name('community.list');
@@ -69,4 +79,6 @@ Route::get('/account', [App\Http\Controllers\AccountController::class, 'showEdit
     ->middleware('auth')
     ->name('account');
 Route::post('/account', [App\Http\Controllers\AccountController::class, 'edit'])
+    ->middleware('auth');
+Route::get('/bookmarks', [App\Http\Controllers\PostsController::class, 'bookmarks'])
     ->middleware('auth');
