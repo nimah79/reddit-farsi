@@ -58,10 +58,22 @@
 @section('scripts')
 @parent
 <script>
-$(document).ready(function(){
-  $(".reply-popup").click(function(){
-    $(".reply-box").toggle();
+  $(document).ready(function () {
+    $('.btn-like').click(async function () {
+      let post_id = $(this).data('postid');
+      let response = await fetch('{{ route('post.like', ['post' => '0']) }}'.replace('0', post_id));
+      let result = await response.json();
+      $('#likes-count-'+post_id).html(result.likes_count);
+      $('#dislikes-count-'+post_id).html(result.dislikes_count);
+    });
+
+    $('.btn-dislike').click(async function () {
+      let post_id = $(this).data('postid');
+      let response = await fetch('{{ route('post.dislike', ['post' => '0']) }}'.replace('0', post_id));
+      let result = await response.json();
+      $('#likes-count-'+post_id).html(result.likes_count);
+      $('#dislikes-count-'+post_id).html(result.dislikes_count);
+    });
   });
-});
 </script>
 @endsection

@@ -14,8 +14,8 @@
       <i class="fas fa-comments"></i> {{ to_persian_digits($post->comments_count) }}
       <span class="mx-1"></span>
       @auth
-      <button type="button" class="btn btn-outline-dark"><i class="fas fa-thumbs-down"></i> {{ to_persian_digits($post->dislikes_count) }}</button>
-      <button type="button" class="btn btn-dark"><i class="fas fa-thumbs-up"></i> {{ to_persian_digits($post->likes_count) }}</button>
+      <button type="button" class="btn btn-outline-dark btn-dislike" data-postid="{{ $post->id }}"><i class="fas fa-thumbs-down"></i> <span id="dislikes-count-{{ $post->id }}">{{ to_persian_digits($post->dislikes_count) }}</span></button>
+      <button type="button" class="btn btn-dark btn-like" data-postid="{{ $post->id }}"><i class="fas fa-thumbs-up"></i> <span id="likes-count-{{ $post->id }}">{{ to_persian_digits($post->likes_count) }}</span></button>
       @endauth
       @guest
       <i class="fas fa-thumbs-down"></i> {{ to_persian_digits($post->dislikes_count) }}
