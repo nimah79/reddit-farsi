@@ -215,6 +215,18 @@ class PostsController extends Controller
         return back();
     }
 
+    public function toggleReport(Post $post)
+    {
+        $userId = auth()->user()->id;
+        if ($report = $post->reports()->whereUserId($userId)->first()) {
+            $report->delete();
+        } else {
+            $post->reports()->create(['user_id' => $userId]);
+        }
+
+        return back();
+    }
+
     public function delete(Post $post)
     {
         if (!$post->community->admins()->whereUserId(auth()->user()->id)->exists()) {

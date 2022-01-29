@@ -21,6 +21,7 @@ class Post extends Model
         'likes',
         'dislikes',
         'comments',
+        'reports',
     ];
 
     public function getRenderedBodyAttribute()

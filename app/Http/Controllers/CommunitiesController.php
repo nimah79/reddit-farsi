@@ -132,4 +132,21 @@ class CommunitiesController extends Controller
 
         return view('communities.show', compact('community', 'posts', 'sortType', 'q'));
     }
+
+    public function subscribe(Community $community)
+    {
+        $user = auth()->user()->id;
+        $community->users()->attach($user);
+
+        return back();
+    }
+
+    public function unsubscribe(Community $community)
+    {
+        $user = auth()->user()->id;
+        $community->users()->detach($user);
+        $community->admins()->detach($user);
+
+        return back();
+    }
 }

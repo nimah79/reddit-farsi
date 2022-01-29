@@ -34,6 +34,9 @@ Route::get('/post/{post}/delete', [App\Http\Controllers\PostsController::class, 
 Route::get('/post/{post}/bookmark', [App\Http\Controllers\PostsController::class, 'toggleBookmark'])
     ->middleware('auth')
     ->name('post.bookmark');
+Route::get('/post/{post}/report', [App\Http\Controllers\PostsController::class, 'toggleReport'])
+    ->middleware('auth')
+    ->name('post.report');
 Route::get('/post/{post}/like', [App\Http\Controllers\PostsController::class, 'like'])
     ->middleware('auth')
     ->name('post.like');
