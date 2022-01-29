@@ -24,8 +24,8 @@
       @endguest
     </div>
     <div class="float-end">
-      <a href="{{ route('post.bookmark', ['post' => $post->id]) }}" class="btn btn-{{ $post->savedPosts()->whereUserId(auth()->user()->id)->exists() ? '' : 'outline-' }}dark"><i class="far fa-bookmark"></i></a>
-      <a href="{{ route('post.report', ['post' => $post->id]) }}" class="btn btn-{{ $post->reports()->whereUserId(auth()->user()->id)->exists() ? '' : 'outline-' }}dark"><i class="far fa-exclamation-triangle"></i> @if ($post->community->admins()->whereUserId(auth()->user()->id)->exists()){{ to_persian_digits($post->reports_count) }}@endif</a>
+      <a href="{{ route('post.bookmark', ['post' => $post->id]) }}" class="btn btn-{{ (auth()->check() && $post->savedPosts()->whereUserId(auth()->user()->id)->exists()) ? '' : 'outline-' }}dark"><i class="far fa-bookmark"></i></a>
+      <a href="{{ route('post.report', ['post' => $post->id]) }}" class="btn btn-{{ (auth()->check() && $post->reports()->whereUserId(auth()->user()->id)->exists()) ? '' : 'outline-' }}dark"><i class="far fa-exclamation-triangle"></i> @if (auth()->check() && $post->community->admins()->whereUserId(auth()->user()->id)->exists()){{ to_persian_digits($post->reports_count) }}@endif</a>
     </div>
   </div>
 </article>
