@@ -30,7 +30,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-1 col-lg-1">
-                <img src="{{ $comment->user->gravatar }}" alt="mdo" width="50" height="50" class="rounded-circle">
+                <img src="{{ $comment->user->gravatar }}" alt="{{ $comment->user->username }}" width="50" height="50" class="rounded-circle">
               </div>
               <div class="col-9 col-lg-10 pt-2">
                 <h6 class="card-subtitle mb-2 small"><a href="#" class="text-body">{{ $comment->user->username }}</a></h6>
@@ -59,7 +59,7 @@
           <div class="card-body">
             <div class="row">
               <div class="col-1 col-lg-1">
-                <img src="{{ $reply->user->gravatar }}" alt="mdo" width="50" height="50" class="rounded-circle">
+                <img src="{{ $reply->user->gravatar }}" alt="{{ $reply->user->username }}" width="50" height="50" class="rounded-circle">
               </div>
               <div class="col-9 col-lg-10 pt-2">
                 <h6 class="card-subtitle mb-2 small"><a href="#" class="text-body">{{ $reply->user->username }}</a></h6>
