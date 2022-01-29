@@ -41,7 +41,6 @@ The project deployed on [Reddit Farsi](http://185.162.235.19/reddit-farsi/).
 - Jalali date for posts and comments
 - reporting a post
 - secure against XSS and SQL injection and CSRF attacks
-- caching queries in the server
 - posts can have pictures
 
 #### TODO:
