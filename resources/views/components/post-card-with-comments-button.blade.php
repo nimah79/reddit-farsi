@@ -4,7 +4,7 @@
       <div class="col-9 col-lg-10 pt-2">
         <h5 class="card-title"><a href="{{ route('post.show', ['post' => $post->id]) }}" class="text-body">{{ $post->title }}</a></h5>
         <h6 class="card-subtitle mb-2 text-muted small">{{ to_persian_digits(verta($post->created_at)) }}</h6>
-        <h6 class="card-subtitle mb-2 text-muted small">{{ __('در') }} <a class="text-body hover-underline" href="#">{{ $post->community->name }}</a>{{ __('،') }} {{ __('توسط') }} <a class="text-body hover-underline" href="#"> {{ $post->user->username }}</a></h6>
+        <h6 class="card-subtitle mb-2 text-muted small">{{ __('در') }} <a class="text-body hover-underline" href="{{ route('community.show', ['community' => $post->community->id]) }}">{{ $post->community->name }}</a>{{ __('،') }} {{ __('توسط') }} <a class="text-body hover-underline" href="#"> {{ $post->user->username }}</a></h6>
       </div>
     </div>
     {!! $post->rendered_body !!}

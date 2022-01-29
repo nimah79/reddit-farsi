@@ -38,7 +38,7 @@
               <td>{{ $admin->username }}</td>
               <td>
                 @if (!in_array($admin->id, [auth()->user()->id, $community->creator_id]))
-                  <a href="{{ url('/') }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                  <a href="{{ route('community.delete-admin', ['community' => $community->id, 'user' => $admin->id]) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                 @endif
               </td>
             </tr>

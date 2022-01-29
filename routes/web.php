@@ -42,6 +42,11 @@ Route::get('/my_communities', [App\Http\Controllers\CommunitiesController::class
 Route::get('/my_communities/{community}/admins', [App\Http\Controllers\CommunitiesController::class, 'admins'])
     ->middleware('auth')
     ->name('community.admins');
+Route::post('/my_communities/{community}/admins', [App\Http\Controllers\CommunitiesController::class, 'addAdmin'])
+    ->middleware('auth');
+Route::get('/my_communities/{community}/admins/{user}/delete', [App\Http\Controllers\CommunitiesController::class, 'deleteAdmin'])
+    ->middleware('auth')
+    ->name('community.delete-admin');
 Route::get('/my_communities/create', [App\Http\Controllers\CommunitiesController::class, 'showCreateForm'])
     ->middleware('auth')
     ->name('community.create');
@@ -52,6 +57,14 @@ Route::get('/my_communities/{community}/edit', [App\Http\Controllers\Communities
     ->name('community.edit');
 Route::post('/my_communities/{community}/edit', [App\Http\Controllers\CommunitiesController::class, 'edit'])
     ->middleware('auth');
+Route::get('/community/{community}/subscribe', [App\Http\Controllers\CommunitiesController::class, 'subscribe'])
+    ->middleware('auth')
+    ->name('community.subscribe');
+Route::get('/community/{community}/unsubscribe', [App\Http\Controllers\CommunitiesController::class, 'unsubscribe'])
+    ->middleware('auth')
+    ->name('community.unsubscribe');
+Route::get('/community/{community}', [App\Http\Controllers\CommunitiesController::class, 'show'])
+    ->name('community.show');
 Route::get('/account', [App\Http\Controllers\AccountController::class, 'showEditForm'])
     ->middleware('auth')
     ->name('account');
