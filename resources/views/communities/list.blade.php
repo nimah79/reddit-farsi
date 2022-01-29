@@ -44,6 +44,7 @@
     </div>
     <div class="col-md-4">
       <div class="position-sticky" style="top: 1rem;">
+        <x-search-card :action="url('/')" />
         <x-today-hottest-communities-card />
       </div>
     </div>

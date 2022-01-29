@@ -30,7 +30,7 @@
 
     <div class="col-md-4">
       <div class="position-sticky" style="top: 1rem;">
-        <x-search-card />
+        <x-search-card action="" />
         <x-today-hottest-communities-card />
       </div>
     </div>

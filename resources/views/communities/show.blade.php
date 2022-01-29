@@ -42,8 +42,8 @@
 
     <div class="col-md-4">
       <div class="position-sticky" style="top: 1rem;">
-        <x-search-card />
-        <x-today-hottest-communities-card />
+        <x-search-card action="" />
+        <x-community-description-card :community="$community" />
       </div>
     </div>
   </div>

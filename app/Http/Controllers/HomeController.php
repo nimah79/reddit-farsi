@@ -27,9 +27,6 @@ class HomeController extends Controller
                 ->orWhere('communities.name', 'like', '%' . $q . '%');
         }
         $posts = $posts->paginate(12)->withQueryString();
-        if ($posts->count() == 0) {
-            abort(404);
-        }
 
         return view('index', compact('posts', 'sortType', 'q'));
     }

@@ -4,18 +4,18 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class SearchCard extends Component
+class CommunityDescriptionCard extends Component
 {
-    public $action;
+    public $community;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($action)
+    public function __construct($community)
     {
-        $this->action = $action;
+        $this->community = $community;
     }
 
     /**
@@ -25,6 +25,6 @@ class SearchCard extends Component
      */
     public function render()
     {
-        return view('components.search-card');
+        return view('components.community-description-card');
     }
 }
