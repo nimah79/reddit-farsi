@@ -11,11 +11,11 @@
 ## IE Fall 2021 final project
 ### Nima HeydariNasab
 ### Mohammadreza Mohammadzade Asl
-## Front-End technologies: Bootstrap 5 and jQuery
+## Front-End technologies: Bootstrap 5 and jQuery and Font Awesome 5
 ## Back-End technologies: Laravel and MySQL
 
 
-Project deployed on [Reddit Farsi]().
+The project deployed on [Reddit Farsi](http://185.162.235.19/reddit-farsi/).
 
 
 #### the main features of this project are:
@@ -35,10 +35,18 @@ Project deployed on [Reddit Farsi]().
 - like and dislike any post or comment
 - searching a post or community or member
 - sorting search results
-- paging the results of the sort if there are many
+- using the pagination for results if there are many
 - light theme and dark theme
 - saving post button
+- Jalali date for posts and comments
+- reporting a post
+- secure against XSS and SQL injection and CSRF attacks
+- caching queries in the server
+- posts can have pictures
 
+#### TODO:
+- add a picture to communities
+- add captcha before sending post or comment
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
