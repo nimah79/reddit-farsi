@@ -77,4 +77,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Report::class);
     }
+
+    public function communitiesWithAdminAccess()
+    {
+        return $this->belongsToMany(Community::class, 'admin_community', 'user_id', 'community_id');
+    }
 }

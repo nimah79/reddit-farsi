@@ -10,30 +10,36 @@
         <div class="card-body">
           <div class="row">
             <div class="col-9 col-lg-10 pt-2">
-              <h5 class="card-title"><i class="fas fa-users"></i> انجمن‌های من</h5>
+              <h5 class="card-title"><i class="fas fa-users"></i> {{ __('مدیران انجمن') }} «{{ $community->name }}»</h5>
             </div>
           </div>
-          <a href="{{ route('community.create') }}" class="btn btn-secondary"><i class="fas fa-plus"></i> ساخت انجمن جدید</a>
+
+          <form method="post">
+            @csrf
+            <div class="mb-3">
+              <label for="username" class="form-label">{{ __('نام کاربری') }}</label>
+              <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <button type="submit" class="btn btn-dark">{{ __('افزودن مدیر') }}</button>
+          </form>
+          
           <table class="table table-striped">
               <thead>
             <tr>
               <th scope="col">#</th>
-              <th scope="col">نام انجمن</th>
-              <th scope="col">نام کاربری سازنده</th>
+              <th scope="col">نام کاربری</th>
               <th scope="col">عملیات‌ها</th>
             </tr>
           </thead>
           <tbody>
-            @foreach ($communities as $community)
+            @foreach ($community->admins as $admin)
             <tr>
               <th scope="row">{{ to_persian_digits($loop->index + 1) }}</th>
-              <td>{{ $community->name }}</td>
-              <td>{{ $community->creator->username }}</td>
+              <td>{{ $admin->username }}</td>
               <td>
-                <a href="{{ route('community.admins', ['community' => $community->id]) }}" class="btn btn-success"><i class="fas fa-users"></i></a>
-                <a href="{{ route('community.edit', ['community' => $community->id]) }}" class="btn btn-info"><i class="fas fa-edit"></i></a>
-                <a href="{{ url('/') }}" class="btn btn-warning"><i class="fas fa-ban"></i></a>
-                <a href="{{ url('/') }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                @if (!in_array($admin->id, [auth()->user()->id, $community->creator_id]))
+                  <a href="{{ url('/') }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                @endif
               </td>
             </tr>
             @endforeach

@@ -27,9 +27,15 @@ Route::post('/post/create', [App\Http\Controllers\PostsController::class, 'creat
     ->middleware('auth');
 Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'show'])
     ->name('post.show');
+Route::get('/post/{post}/delete', [App\Http\Controllers\PostsController::class, 'delete'])
+    ->middleware('auth')
+    ->name('post.delete');
 Route::get('/my_communities', [App\Http\Controllers\CommunitiesController::class, 'list'])
     ->middleware('auth')
     ->name('community.list');
+Route::get('/my_communities/{community}/admins', [App\Http\Controllers\CommunitiesController::class, 'admins'])
+    ->middleware('auth')
+    ->name('community.admins');
 Route::get('/my_communities/create', [App\Http\Controllers\CommunitiesController::class, 'showCreateForm'])
     ->middleware('auth')
     ->name('community.create');
@@ -39,4 +45,9 @@ Route::get('/my_communities/{community}/edit', [App\Http\Controllers\Communities
     ->middleware('auth')
     ->name('community.edit');
 Route::post('/my_communities/{community}/edit', [App\Http\Controllers\CommunitiesController::class, 'edit'])
+    ->middleware('auth');
+Route::get('/account', [App\Http\Controllers\AccountController::class, 'showEditForm'])
+    ->middleware('auth')
+    ->name('account');
+Route::post('/account', [App\Http\Controllers\AccountController::class, 'edit'])
     ->middleware('auth');

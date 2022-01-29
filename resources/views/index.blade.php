@@ -8,6 +8,10 @@
 
       <a href="{{ route('post.create') }}" class="btn btn-secondary mb-2"><i class="fas fa-pencil"></i> نوشتن پست جدید</a>
 
+      @if ($q)
+      <h4 class="mt-4">{{ __('نتایج جست‌وجو برای') }} «{{ $q }}»:</h4>
+      @endif
+
       @each('components.post-card-with-comments-button', $posts, 'post')
 
       <nav class="pagination" aria-label="Pagination">
@@ -26,6 +30,7 @@
 
     <div class="col-md-4">
       <div class="position-sticky" style="top: 1rem;">
+        <x-search-card />
         <x-today-hottest-communities-card />
       </div>
     </div>

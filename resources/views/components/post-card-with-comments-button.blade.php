@@ -14,6 +14,9 @@
       <i class="fas fa-comments"></i> {{ to_persian_digits($post->comments_count) }}
       <span class="mx-1"></span>
       @auth
+      @if ($post->community->admins()->whereUserId(auth()->user()->id)->exists())
+      <a type="button" href="{{ route('post.delete', ['post' => $post->id]) }}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+      @endif
       <button type="button" class="btn btn-outline-dark"><i class="fas fa-thumbs-down"></i> {{ to_persian_digits($post->dislikes_count) }}</button>
       <button type="button" class="btn btn-dark"><i class="fas fa-thumbs-up"></i> {{ to_persian_digits($post->likes_count) }}</button>
       @endauth

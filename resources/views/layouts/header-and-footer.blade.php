@@ -28,7 +28,7 @@
             <li><p class="dropdown-item text-start">{{ auth()->user()->email }}</p></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item mb-3" href="{{ url('/my_communities') }}"><i class="fas fa-users"></i> {{ __('انجمن‌های من') }}</a></li>
-            <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i> {{ __('تنظیمات حساب کاربری') }}</a></li>
+            <li><a class="dropdown-item" href="{{ url('/account') }}"><i class="fas fa-user-cog"></i> {{ __('تنظیمات حساب کاربری') }}</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit()"><i class="fas fa-sign-out-alt"></i> {{ __('خروج') }}</a></li>
             <form id="logout-form" style="display:none" action="{{ url('/logout') }}" method="post">

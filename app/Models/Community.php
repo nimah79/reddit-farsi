@@ -11,6 +11,11 @@ class Community extends Model
 
     protected $guarded = [];
 
+    protected $withCount = [
+        'users',
+        'posts',
+    ];
+
     protected $with = [
         'creator',
     ];
@@ -28,5 +33,10 @@ class Community extends Model
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function admins()
+    {
+        return $this->belongsToMany(User::class, 'admin_community', 'community_id', 'user_id');
     }
 }

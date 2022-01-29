@@ -14,6 +14,15 @@ class CommunitiesController extends Controller
         return view('communities.list', compact('communities'));
     }
 
+    public function admins(Community $community)
+    {
+        if (!$community->admins()->whereUserId(auth()->user()->id)->exists()) {
+            abort(403);
+        }
+
+        return view('communities.admins', compact('community'));
+    }
+
     public function showCreateForm()
     {
         return view('communities.create');
@@ -30,6 +39,7 @@ class CommunitiesController extends Controller
 
         $community = Community::create($attributes);
         $community->users()->attach(auth()->user());
+        $community->admins()->attach(auth()->user());
 
         return redirect(route('community.list'));
     }
