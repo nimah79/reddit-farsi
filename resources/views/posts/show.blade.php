@@ -18,6 +18,7 @@
           <div class="card-body">
             <h5 class="card-title"><i class="fas fa-plus"></i> {{ __('افزودن کامنت جدید') }}</h5>
             <form method="post">
+              @csrf
               <div class="mb-3">
                 <textarea class="form-control" id="comment" name="comment" rows="3" required></textarea>
               </div>
