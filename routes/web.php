@@ -30,6 +30,12 @@ Route::get('/post/{post}', [App\Http\Controllers\PostsController::class, 'show']
 Route::get('/post/{post}/delete', [App\Http\Controllers\PostsController::class, 'delete'])
     ->middleware('auth')
     ->name('post.delete');
+Route::get('/post/{post}/like', [App\Http\Controllers\PostsController::class, 'like'])
+    ->middleware('auth')
+    ->name('post.like');
+Route::get('/post/{post}/dislike', [App\Http\Controllers\PostsController::class, 'dislike'])
+    ->middleware('auth')
+    ->name('post.dislike');
 Route::get('/my_communities', [App\Http\Controllers\CommunitiesController::class, 'list'])
     ->middleware('auth')
     ->name('community.list');
