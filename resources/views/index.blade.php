@@ -48,6 +48,12 @@
       let result = await response.json();
       $('#likes-count-'+post_id).html(result.likes_count);
       $('#dislikes-count-'+post_id).html(result.dislikes_count);
+      $('.btn-like[data-postid="'+post_id+'"]').removeClass('btn-dark');
+      $('.btn-like[data-postid="'+post_id+'"]').removeClass('btn-outline-dark');
+      $('.btn-like[data-postid="'+post_id+'"]').addClass('btn-'+(result.liked ? '' : 'outline-')+'dark');
+      $('.btn-dislike[data-postid="'+post_id+'"]').removeClass('btn-dark');
+      $('.btn-dislike[data-postid="'+post_id+'"]').removeClass('btn-outline-dark');
+      $('.btn-dislike[data-postid="'+post_id+'"]').addClass('btn-'+(result.disliked ? '' : 'outline-')+'dark');
     });
 
     $('.btn-dislike').click(async function () {
@@ -56,6 +62,12 @@
       let result = await response.json();
       $('#likes-count-'+post_id).html(result.likes_count);
       $('#dislikes-count-'+post_id).html(result.dislikes_count);
+      $('.btn-like[data-postid="'+post_id+'"]').removeClass('btn-dark');
+      $('.btn-like[data-postid="'+post_id+'"]').removeClass('btn-outline-dark');
+      $('.btn-like[data-postid="'+post_id+'"]').addClass('btn-'+(result.liked ? '' : 'outline-')+'dark');
+      $('.btn-dislike[data-postid="'+post_id+'"]').removeClass('btn-dark');
+      $('.btn-dislike[data-postid="'+post_id+'"]').removeClass('btn-outline-dark');
+      $('.btn-dislike[data-postid="'+post_id+'"]').addClass('btn-'+(result.disliked ? '' : 'outline-')+'dark');
     });
   });
 </script>
