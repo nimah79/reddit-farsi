@@ -43,6 +43,11 @@ The project deployed on [Reddit Farsi](http://185.162.235.19/reddit-farsi/).
 - secure against XSS and SQL injection and CSRF attacks
 - posts can have pictures
 
+### TODO:
+- Refactoring!
+- Add a picture to communities
+- Add captcha before sending post or comment
+
 ### Demo
 
 ![Image 1](images/01.png)
@@ -51,11 +56,6 @@ The project deployed on [Reddit Farsi](http://185.162.235.19/reddit-farsi/).
 ![Image 4](images/04.png)
 ![Image 5](images/05.png)
 ![Image 6](images/06.png)
-
-### TODO:
-- Refactoring!
-- Add a picture to communities
-- Add captcha before sending post or comment
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
