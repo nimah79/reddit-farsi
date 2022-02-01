@@ -52,9 +52,10 @@ The project deployed on [Reddit Farsi](http://185.162.235.19/reddit-farsi/).
 ![Image 5](images/05.png)
 ![Image 6](images/06.png)
 
-#### TODO:
-- add a picture to communities
-- add captcha before sending post or comment
+### TODO:
+- Refactoring!
+- Add a picture to communities
+- Add captcha before sending post or comment
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
